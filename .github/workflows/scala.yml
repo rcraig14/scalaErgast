@@ -1,4 +1,4 @@
-name: Scala CI
+name: Scala CI - Build and Test
 
 on: [push, pull_request]
 
