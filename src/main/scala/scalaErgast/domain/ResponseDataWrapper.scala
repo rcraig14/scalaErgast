@@ -51,7 +51,6 @@ object ResponseDataWrapper {
                           offset: Offset,
                           total: Total,
                           SeasonTable: Option[SeasonTable],
-                          RaceTable: Option[RaceTable]
                          )
 
 }
