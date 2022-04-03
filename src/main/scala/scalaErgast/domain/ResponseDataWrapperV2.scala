@@ -1,7 +1,6 @@
 package scalaErgast.domain
 
 import io.circe.{Decoder, Encoder}
-import org.http4s.EntityEncoder
 
 case class ResponseDataWrapperV2[T](mrData: ResponseDataV2[T])
 

@@ -7,7 +7,9 @@ import io.estatico.newtype.macros.newtype
 import scalaErgast.domain.ResponseDataV2.{Limit, Offset, Series, Total, Xmlns}
 import scalaErgast.domain.SharedClasses.Url
 
-@derive(decoder, encoder)
+import scala.reflect.{ClassManifest, ClassTag}
+
+//@derive(decoder, encoder)
 case class  ResponseDataV2[T](
                        xmlns: Xmlns,
                        series: Series,
@@ -19,6 +21,9 @@ case class  ResponseDataV2[T](
                      )
 
 object ResponseDataV2 {
+//  implicit def encoder[T : ClassTag](implicit encoder: Encoder[T]): Encoder[ResponseDataV2[T]] =
+//    Encoder.forProduct1("xmlns", "series", "url", "limit", "offset", "total", ClassTag.toString)(r => (r.xmlns, r.series, r.url, r.limit, r.offset, r.total, r.data))
+
   @derive(decoder, encoder)
   @newtype
   case class Xmlns(value: String)
