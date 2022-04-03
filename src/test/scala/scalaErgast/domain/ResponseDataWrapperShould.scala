@@ -35,8 +35,7 @@ class ResponseDataWrapperShould extends AnyFlatSpec with Matchers {
               )
             )
           )
-        ),
-        RaceTable = None
+        )
       )
     )
 

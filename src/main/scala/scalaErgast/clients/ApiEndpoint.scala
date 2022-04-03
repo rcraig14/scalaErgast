@@ -14,8 +14,8 @@ trait ApiEndpoint [ApiRequest, ApiResponse] {
 
   def getResponse(response: ResponseDataWrapper): ApiResponse
 
-  def get[F[_] : Client : JsonDecoder: Async](apiRequest: ApiRequest): F[ApiResponse] = {
-    client$F$0
+  def get[F[_] : Client : JsonDecoder: Async](apiRequest: ApiRequest)(implicit client: Client[F]): F[ApiResponse] = {
+    client
       .expect[ResponseDataWrapper](buildUri(apiRequest).urlTemplate.toString)
       .map(getResponse)
   }
