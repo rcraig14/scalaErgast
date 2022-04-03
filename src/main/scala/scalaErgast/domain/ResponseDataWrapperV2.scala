@@ -1,8 +1,9 @@
 package scalaErgast.domain
 
 import io.circe.{Decoder, Encoder}
+import org.http4s.EntityEncoder
 
-case class ResponseDataWrapperV2[T](mrData: ResponseDataV2[T])(implicit encoder: Encoder[T], decoder: Decoder[T])
+case class ResponseDataWrapperV2[T](mrData: ResponseDataV2[T])
 
 object ResponseDataWrapperV2 {
   implicit def encoder[T](implicit encoder: Encoder[T]): Encoder[ResponseDataWrapperV2[T]] =
