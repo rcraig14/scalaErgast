@@ -16,7 +16,7 @@ case class ResponseDataWrapper(
 object ResponseDataWrapper {
 
   implicit val MRDataEncoder: Encoder[ResponseDataWrapper] =
-    Encoder.forProduct1("MRData")(_.mrData)
+    Encoder.forProduct1("MRData")((a: ResponseDataWrapper) => a.mrData)
 
   implicit val MRDataDecoder: Decoder[ResponseDataWrapper] =
     Decoder.forProduct1("MRData")(ResponseDataWrapper(_))
